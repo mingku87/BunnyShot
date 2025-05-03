@@ -40,6 +40,8 @@ public class Player : MoveableObject
 
         killCount = 0;
         killGoal = GameConstant.killMonsterMax[GameManager.round];
+
+        monsterText.text = killCount + "/" + killGoal;
     }
 
     void Update()
@@ -120,6 +122,7 @@ public class Player : MoveableObject
     {
         FindObjectOfType<GameManager>().Cleargame(life);
         Time.timeScale = 0;
+        gameObject.SetActive(false);
     }
 
     public void GetDamaged()

@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
 
     public static int round = 1;
     public static void DecideRound(int i) { round = i; }
-    public static void RoundUp() { round++; }
 
     void Start()
     {
@@ -126,7 +125,7 @@ public class GameManager : MonoBehaviour
     public void PlayGame()
     {
         FindObjectOfType<AudioEffect>().ClickSound();
-        SceneManager.LoadScene("Shooting1");
+        SceneManager.LoadScene("Shooting");
     }
 
     public void Endgame()
@@ -151,7 +150,6 @@ public class GameManager : MonoBehaviour
         else
         {
             FindObjectOfType<AudioEffect>().ClearSound();
-            RoundUp();
             clearImage.SetActive(true);
             if (life == 1)
             {
@@ -169,14 +167,14 @@ public class GameManager : MonoBehaviour
     public void Nextgame()
     {
         FindObjectOfType<AudioEffect>().ClickSound();
-        SceneManager.LoadScene("Shooting1");
+        SceneManager.LoadScene("Shooting");
         FindObjectOfType<Audio>().RoundBGM();
         Time.timeScale = 1;
         isClear = false;
     }
     public void Retry()
     {
-        SceneManager.LoadScene("Shooting1");
+        SceneManager.LoadScene("Shooting");
         FindObjectOfType<Audio>().RoundBGM();
     }
     public void Continue()
