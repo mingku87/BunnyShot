@@ -140,7 +140,11 @@ public class Player : MoveableObject
         FindObjectOfType<AudioEffect>().DamagedSound();
         FindObjectOfType<GameManager>().Life();
 
-        if (life == 0) FindObjectOfType<GameManager>().Endgame();
+        if (life == 0)
+        {
+            FindObjectOfType<GameManager>().Endgame();
+            gameObject.SetActive(false);
+        }
     }
 
     public void GetItem(ItemType itemType)
